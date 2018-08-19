@@ -43,4 +43,10 @@ Also we add three way points in next 30 meters, 60 meters and 90 meters to the t
 
 We then use spline library to get the remaining points of the trajectory based on the current path (we are adding total of 50 points to the trajectory). All these points are then again moved to the global coordinates (so that these can be sent to the simulator to generate the trajectory and to drive the car based on this trajectory). The speed change is decided on the behavior part of the code, but it is used in that part to increase/decrease speed on every trajectory points instead of doing it for the complete trajectory.
 
+## Final Result
+
+[Here] (https://youtu.be/16kchiB8ux0) is a link to the video that I recorded while the car was run autonomously in the simulator. The car was able to drive around the virtual highway in the simulator taking care of all the Rubric points mentioned in the project. 
+
+![alt Text](Distance_covered_without_collision.jpg)
+
 
