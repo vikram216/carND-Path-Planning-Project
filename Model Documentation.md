@@ -25,7 +25,7 @@ These questions are answered by calculating the lane each other car is in and th
 
 ## Behavior Planning
 
-This part decides what our car car should do based on the input from prediction. There can be following behaviors which our car can do based on the other moving cars.
+This part decides what our car should do based on the input from prediction. There can be following behaviors which our car can do based on the other moving cars.
 
 | Prediction                                                 | Behavior of our car                                                                                                |
 |------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
