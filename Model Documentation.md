@@ -22,3 +22,15 @@ In order to plan the behavior of our vehicle we need to use the sensor data pass
 3. Is there a car to the left of us making a lane change not safe.
 
 These questions are answered by calculating the lane each other car is in and the position it will be in at the end of the last plan trajectory. A car's position is considered too close when its distance to our car is less than 30 meters in front or behind us.
+
+## Behavior Planning
+
+This part decides what our car car should do based on the input from prediction. There can be following behaviors which our car can do based on the other moving cars.
+
+| Prediction                                                 | Behavior of our car                                                                                                |
+|------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+| Car ahead us is too close                                  | Slow down our car                                                                                                  |
+| Car ahead us is driving slow                               | See if we can change lane safely                                                                                   |
+| Car ahead us is slow and there is no car on left lane      | Change the lane to left lane (but see first if it is safe to change the lane and we are not in the left most lane) |
+| Car ahead us is slow and there is another car in left lane | Change the lane to right (but see first if it is safe to change the lane and we are not in the right most lane)    |
+| There is no car ahead of us or car is too far away         | Increase the speed of the car to approx. speed limit and maintain the lane                                         |
