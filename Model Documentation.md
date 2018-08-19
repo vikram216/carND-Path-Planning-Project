@@ -34,3 +34,13 @@ This part decides what our car should do based on the input from prediction. The
 | Car ahead us is slow and there is no car on left lane      | Change the lane to left lane (but see first if it is safe to change the lane and we are not in the left most lane) |
 | Car ahead us is slow and there is another car in left lane | Change the lane to right (but see first if it is safe to change the lane and we are not in the right most lane)    |
 | There is no car ahead of us or car is too far away         | Increase the speed of the car to approx. speed limit and maintain the lane                                         |
+
+## Trajectory Generation
+
+The calculation of trajectory is based on the speed, other vehicles position, xvelocity and lane, current lane, car coordinates and past path points. To make the trajectory smooth we adds the last two points from the previous trajectory path. If there are no previous paths we calculate the previous point from the current yaw rate and the current car coordinates.
+
+Also we add three way points in next 30 meters, 60 meters and 90 meters to the trajectory. All these points are then shifted to the car reference angle (local car coordinates) – this is done to simplify the calculations.
+
+We then use spline library to get the remaining points of the trajectory based on the current path (we are adding total of 50 points to the trajectory). All these points are then again moved to the global coordinates (so that these can be sent to the simulator to generate the trajectory and to drive the car based on this trajectory). The speed change is decided on the behavior part of the code, but it is used in that part to increase/decrease speed on every trajectory points instead of doing it for the complete trajectory.
+
+
