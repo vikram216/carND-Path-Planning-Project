@@ -23,7 +23,7 @@ In order to plan the behavior of our vehicle we need to use the sensor data pass
 
 These questions are answered by calculating the lane each other car is in and the position it will be in at the end of the last plan trajectory. A car's position is considered too close when its distance to our car is less than 30 meters in front or behind us.
 
-## Behavior Planning
+### Behavior Planning
 
 This part decides what our car should do based on the input from prediction. There can be following behaviors which our car can do based on the other moving cars.
 
@@ -35,7 +35,7 @@ This part decides what our car should do based on the input from prediction. The
 | Car ahead us is slow and there is another car in left lane | Change the lane to right (but see first if it is safe to change the lane and we are not in the right most lane)    |
 | There is no car ahead of us or car is too far away         | Increase the speed of the car to approx. speed limit and maintain the lane                                         |
 
-## Trajectory Generation
+### Trajectory Generation
 
 The calculation of trajectory is based on the speed, other vehicles position, xvelocity and lane, current lane, car coordinates and past path points. To make the trajectory smooth we adds the last two points from the previous trajectory path. If there are no previous paths we calculate the previous point from the current yaw rate and the current car coordinates.
 
@@ -43,7 +43,7 @@ Also we add three way points in next 30 meters, 60 meters and 90 meters to the t
 
 We then use spline library to get the remaining points of the trajectory based on the current path (we are adding total of 50 points to the trajectory). All these points are then again moved to the global coordinates (so that these can be sent to the simulator to generate the trajectory and to drive the car based on this trajectory). The speed change is decided on the behavior part of the code, but it is used in that part to increase/decrease speed on every trajectory points instead of doing it for the complete trajectory.
 
-## Final Result
+### Final Result
 
 [Here] (https://youtu.be/16kchiB8ux0) is a link to the video that I recorded while the car was run autonomously in the simulator. The car was able to drive around the virtual highway in the simulator taking care of all the Rubric points mentioned in the project. 
 
